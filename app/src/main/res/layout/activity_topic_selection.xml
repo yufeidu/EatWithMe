@@ -10,4 +10,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="moe.edward.eatwithme.TopicSelection">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            tools:text="Choose an entry with topics you're interested in:" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="335dp"
+            android:layout_weight="1.05"
+            android:id="@+id/scrollview_topic">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <TextView
+            android:text="Or create your own entry:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="What are you interested in?"
+                android:ems="10"
+                android:id="@+id/editText_topic"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_topic"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
