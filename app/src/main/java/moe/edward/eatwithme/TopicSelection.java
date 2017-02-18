@@ -38,6 +38,7 @@ public class TopicSelection extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            view.addView(button);
         }
     }
 
