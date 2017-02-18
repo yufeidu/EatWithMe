@@ -46,6 +46,8 @@
             android:id="@+id/textView5" />
 
         <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="48dp">
@@ -54,9 +56,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="What are you interested in?"
+                android:hint="What are you interested in?"
                 android:ems="10"
                 android:id="@+id/editText_topic"
+                android:nextFocusUp="@id/editText_topic"
+                android:nextFocusLeft="@id/editText_topic"
                 android:layout_weight="1" />
 
             <Button
@@ -64,7 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_topic"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="onClickButton (TopicSelection)" />
         </LinearLayout>
 
     </LinearLayout>

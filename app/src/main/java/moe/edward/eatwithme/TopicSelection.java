@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -22,6 +23,7 @@ public class TopicSelection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_selection);
         LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout_Inside_Topic);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         updateEntryList(layout);
     }
 
@@ -30,17 +32,19 @@ public class TopicSelection extends AppCompatActivity {
         ArrayList<String[]> map = getEntries();
         for(String[] entry : map){
             Button button = new Button(this);
-            button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             button.setText(entry[0]);
             final int x = Integer.parseInt(entry[1]);
             final int y = Integer.parseInt(entry[2]);
             button.setOnClickListener(new Button.OnClickListener(){
                 public void onClick(View view){
                     Intent intent = new Intent(TopicSelection.this, Map.class);
+                    intent.putExtra("mode",1);
                     intent.putExtra("entry", new int[]{x,y});
                     startActivity(intent);
                 }
             });
+            button.setTransformationMethod(null);
             view.addView(button);
         }
     }
@@ -57,6 +61,7 @@ public class TopicSelection extends AppCompatActivity {
     public void onClickButton(View e){
 
         Intent intent = new Intent(TopicSelection.this, Map.class);
+        intent.putExtra("mode",2);
         startActivity(intent);
     }
 }
