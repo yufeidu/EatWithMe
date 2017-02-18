@@ -38,6 +38,8 @@ import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
 
+import moe.edward.eatwithme.Map;
+
 public class TouchImageView extends ImageView {
 	
 	private static final String DEBUG = "DEBUG";
@@ -63,7 +65,7 @@ public class TouchImageView extends ImageView {
     //
 	private Matrix matrix, prevMatrix;
 
-    private static enum State { NONE, DRAG, ZOOM, FLING, ANIMATE_ZOOM };
+    private static enum State { NONE, DRAG, TOUCH, ZOOM, FLING, ANIMATE_ZOOM };
     private State state;
 
     private float minScale;
@@ -827,17 +829,17 @@ public class TouchImageView extends ImageView {
             mGestureDetector.onTouchEvent(event);
             PointF curr = new PointF(event.getX(), event.getY());
             
-            if (state == State.NONE || state == State.DRAG || state == State.FLING) {
+            if (state == State.NONE || state == State.TOUCH || state == State.DRAG|| state == State.FLING) {
 	            switch (event.getAction()) {
 	                case MotionEvent.ACTION_DOWN:
 	                	last.set(curr);
 	                    if (fling != null)
 	                    	fling.cancelFling();
-	                    setState(State.DRAG);
+	                    setState(State.TOUCH);
 	                    break;
 	                    
 	                case MotionEvent.ACTION_MOVE:
-	                    if (state == State.DRAG) {
+	                    if (state == State.TOUCH || state == State.DRAG) {
 	                        float deltaX = curr.x - last.x;
 	                        float deltaY = curr.y - last.y;
 	                        float fixTransX = getFixDragTrans(deltaX, viewWidth, getImageWidth());
@@ -845,11 +847,17 @@ public class TouchImageView extends ImageView {
 	                        matrix.postTranslate(fixTransX, fixTransY);
 	                        fixTrans();
 	                        last.set(curr.x, curr.y);
+                            setState(State.DRAG);
 	                    }
 	                    break;
 	
 	                case MotionEvent.ACTION_UP:
 	                case MotionEvent.ACTION_POINTER_UP:
+                        if(state == State.TOUCH){
+                            PointF touched = transformCoordTouchToBitmap(curr.x,curr.y,false);
+                            Log.d("Clicked", touched.x+" "+touched.y);
+                            ((Map)getContext()).setPos((int)touched.x,(int)touched.y);
+                        }
 	                    setState(State.NONE);
 	                    break;
 	            }
