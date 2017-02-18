@@ -15,9 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
-
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity android:name=".PlacesSelection" />
         <activity android:name=".TopicSelection">
             <intent-filter>
@@ -26,11 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Map">
-
-
-
-        </activity>
+        <activity android:name=".Map"></activity>
+        <activity android:name=".MapUnzoomed"></activity>
     </application>
 
 </manifest>
