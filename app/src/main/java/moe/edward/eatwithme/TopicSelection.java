@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.view.View;
 
@@ -20,10 +21,12 @@ public class TopicSelection extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic_selection);
+        LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout_Inside_Topic);
+        updateEntryList(layout);
     }
 
     //map data structure: {text,X,Y}
-    private void updateEntryList(ScrollView view) {
+    private void updateEntryList(LinearLayout view) {
         ArrayList<String[]> map = getEntries();
         for(String[] entry : map){
             Button button = new Button(this);
