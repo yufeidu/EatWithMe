@@ -19,14 +19,16 @@
 
         </activity>
         <activity android:name=".PlacesSelection" />
-        <activity android:name=".TopicSelection" />
-        <activity android:name=".Map">
-
+        <activity android:name=".TopicSelection">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Map">
+
+
 
         </activity>
     </application>
