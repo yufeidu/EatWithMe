@@ -13,4 +13,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="choose_your_location">Choose Your Location</string>
+    <string name="douglas_hall">Douglas Hall</string>
+    <string name="danforth_hall">Danforth Hall</string>
+    <string name="wilson_commons">Wilson Commons</string>
 </resources>
