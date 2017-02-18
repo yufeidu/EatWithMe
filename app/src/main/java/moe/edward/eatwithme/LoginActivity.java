@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             "foo@example.com:hello", "bar@example.com:world"
     };
     //Lol
+    //It's a new comment
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
