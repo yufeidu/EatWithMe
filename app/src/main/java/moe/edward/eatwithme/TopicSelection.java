@@ -32,8 +32,8 @@ public class TopicSelection extends AppCompatActivity {
             Button button = new Button(this);
             button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             button.setText(entry[0]);
-            final int x = Integer.getInteger(entry[1]);
-            final int y = Integer.getInteger(entry[2]);
+            final int x = Integer.parseInt(entry[1]);
+            final int y = Integer.parseInt(entry[2]);
             button.setOnClickListener(new Button.OnClickListener(){
                 public void onClick(View view){
                     Intent intent = new Intent(TopicSelection.this, Map.class);
