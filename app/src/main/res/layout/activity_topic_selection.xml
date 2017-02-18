@@ -69,7 +69,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button_topic"
                 android:layout_weight="1"
-                android:onClick="onClickButton (TopicSelection)" />
+                android:onClick="onClickButton"
+                android:enabled="false" />
         </LinearLayout>
 
     </LinearLayout>
