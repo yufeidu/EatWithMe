@@ -2,9 +2,6 @@ package moe.edward.eatwithme;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import com.ortiz.touch.*;
 
 public class Map extends AppCompatActivity {
