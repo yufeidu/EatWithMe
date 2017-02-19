@@ -2,6 +2,7 @@ package moe.edward.eatwithme;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
@@ -115,9 +116,12 @@ public class TopicSelection extends AppCompatActivity {
             button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             button.setText(entry[0]);
             if(Integer.parseInt(entry[2])==1){
-                button.setTextColor(Color.GREEN);
+                button.setTextColor(Color.BLACK);
+                //Cite: https://stackoverflow.com/questions/1521640/standard-android-button-with-a-different-color
+                button.getBackground().setColorFilter(0xFF00FF00, PorterDuff.Mode.MULTIPLY);
             }else{
-                button.setTextColor(Color.RED);
+                //button.setTextColor(Color.RED);
+                button.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
             }
             final int id = Integer.parseInt(entry[1]);
             button.setOnClickListener(new Button.OnClickListener(){
