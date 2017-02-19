@@ -54,7 +54,7 @@ public class Map extends AppCompatActivity {
         if(mode==1){
             button.setVisibility(View.INVISIBLE);
             int[] pos = intent.getIntArrayExtra("entry");
-            Bitmap myimage = BitmapFactory.decodeResource(getResources(),R.drawable.douglas);
+            Bitmap myimage = BitmapFactory.decodeResource(getResources(),R.drawable.dougl);
             Bitmap tempMap = Bitmap.createBitmap(myimage.getWidth(), myimage.getHeight(), Bitmap.Config.RGB_565);
             Canvas canvas = new Canvas(tempMap);
             canvas.drawBitmap(myimage,0,0,null);

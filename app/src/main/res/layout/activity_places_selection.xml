@@ -17,11 +17,12 @@
         android:layout_height="wrap_content"
         android:text="DOUGLAS"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"/>
+        android:paddingTop="20dp"
+        android:textStyle="bold"/>
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="160dp"
+        android:layout_height="161dp"
         android:id="@+id/douglas"
         android:text="@string/douglas_hall"
         android:src="@drawable/imdoug"
@@ -33,28 +34,29 @@
         android:layout_height="wrap_content"
         android:text="DANFORTH"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"/>
+        android:paddingTop="20dp"
+        android:textStyle="bold"/>
 
     <ImageButton
         android:layout_width="447dp"
-        android:layout_height="wrap_content"
+        android:layout_height="147dp"
         android:id="@+id/danforth"
         android:text="@string/danforth_hall"
-        android:src="@drawable/danforth"
+        android:src="@drawable/danforthh"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"
-        android:layout_weight="0.79" />
+        android:paddingTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WILSON COMMONS"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"/>
+        android:paddingTop="20dp"
+        android:textStyle="bold"/>
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="222dp"
+        android:layout_height="match_parent"
         android:id="@+id/commons"
         android:text="@string/wilson_commons"
         android:src="@drawable/commons"
