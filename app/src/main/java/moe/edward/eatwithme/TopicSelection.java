@@ -1,6 +1,7 @@
 package moe.edward.eatwithme;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
@@ -91,6 +92,11 @@ public class TopicSelection extends AppCompatActivity {
             //topics.add(button);
             button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             button.setText(entry[0]);
+            if(Integer.parseInt(entry[2])==1){
+                button.setTextColor(Color.GREEN);
+            }else{
+                button.setTextColor(Color.RED);
+            }
             final int id = Integer.parseInt(entry[1]);
             button.setOnClickListener(new Button.OnClickListener(){
                 public void onClick(View view){
@@ -191,7 +197,7 @@ public class TopicSelection extends AppCompatActivity {
                 int counter = 0;
                 while (!json.isNull("item_" + counter)) {
                     JSONArray array = json.getJSONArray("item_" + counter);
-                    result.add(new String[]{(String) array.get(1), Integer.toString((Integer) array.get(0))});
+                    result.add(new String[]{(String) array.get(1), Integer.toString((Integer) array.get(0)),Integer.toString((Integer) array.get(2))});
                     Log.d("item_"+counter,(String)array.get(1));
                     counter++;
                 }
