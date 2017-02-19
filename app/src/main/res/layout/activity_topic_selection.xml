@@ -52,7 +52,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="335dp"
-            android:layout_weight="0.58"
+            android:layout_weight="0.96"
             android:id="@+id/scrollview_topic"
             android:clipToPadding="false"
             android:fillViewport="false">
@@ -102,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:id="@+id/radioGroup_Topic"
             android:paddingLeft="20dp">
 
             <RadioButton
@@ -109,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:text="Argue"
                 android:layout_weight="1"
+                android:id="@+id/radio1_Topic"
                 android:textColor="#c40318" />
 
             <RadioButton
@@ -116,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="Learn"
                 android:layout_weight="1"
+                android:id="@+id/radio2_Topic"
                 android:textColor="#49df09"/>
 
         </RadioGroup>

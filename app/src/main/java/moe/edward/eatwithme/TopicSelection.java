@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.view.View;
 import android.widget.TextView;
@@ -43,8 +44,10 @@ public class TopicSelection extends AppCompatActivity {
     URL urlGet;
     String jsonString;
     LinearLayout layout;
-    int selected;
+    int selected, mode;
     ArrayList<Button> topics;
+    RadioGroup group;
+    boolean hasText = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +58,19 @@ public class TopicSelection extends AppCompatActivity {
         //new GetData().execute();
         //topics = new ArrayList<Button>();
         EditText text = (EditText)findViewById(R.id.editText_topic);
+        group = (RadioGroup) findViewById(R.id.radioGroup_Topic);
         text.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
 
                 if(s.toString().equals("")){
-                    ((Button)findViewById(R.id.button_topic)).setEnabled(false);
+                    ((Button) findViewById(R.id.button_topic)).setEnabled(false);
+                    hasText = false;
                 }else{
-                    ((Button)findViewById(R.id.button_topic)).setEnabled(true);
+                    if(group.getCheckedRadioButtonId()!=-1) {
+                        ((Button) findViewById(R.id.button_topic)).setEnabled(true);
+                    }
+                    hasText = true;
                 }
 
             }
@@ -70,6 +78,20 @@ public class TopicSelection extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        });
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.radio1_Topic){
+                    mode = 2;
+                }else{
+                    mode = 1;
+                }
+                if(hasText) {
+                    ((Button) findViewById(R.id.button_topic)).setEnabled(true);
+                }
+
+            }
         });
     }
 
@@ -116,6 +138,7 @@ public class TopicSelection extends AppCompatActivity {
         String text = ((EditText)findViewById(R.id.editText_topic)).getText().toString();
         Intent intent = new Intent(TopicSelection.this, Map.class);
         intent.putExtra("mode", 2);
+        intent.putExtra("type",mode);
         intent.putExtra("data", text);
         startActivity(intent);
     }

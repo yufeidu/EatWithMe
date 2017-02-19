@@ -40,6 +40,7 @@ public class Map extends AppCompatActivity {
     ImageView pin;
     Button button;
     String text;
+    int topictype;
     TouchImageView touchmap;
 
     @Override
@@ -71,6 +72,7 @@ public class Map extends AppCompatActivity {
         }else{
             button.setVisibility(View.VISIBLE);
             text=intent.getStringExtra("data");
+            topictype = intent.getIntExtra("type",1);
         }
     }
 
@@ -119,10 +121,12 @@ public class Map extends AppCompatActivity {
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("PUT");
+                Log.d("type",topictype+"\n");
                 Uri.Builder builder = new Uri.Builder().appendQueryParameter("topic",text)
                                                         .appendQueryParameter("uID","0")
                                                         .appendQueryParameter("lID",pos[0]+"")
-                                                        .appendQueryParameter("mlID",pos[1]+"");
+                                                        .appendQueryParameter("mlID",pos[1]+"")
+                                                        .appendQueryParameter("topicType",topictype+"");
                 String param = builder.build().getEncodedQuery();
                 OutputStream os = urlConnection.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
