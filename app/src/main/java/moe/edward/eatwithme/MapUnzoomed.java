@@ -1,21 +1,17 @@
 package moe.edward.eatwithme;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 public class MapUnzoomed extends AppCompatActivity {
     ImageView map;
@@ -28,7 +24,7 @@ public class MapUnzoomed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_unzoomed);
 
-        imageMap = BitmapFactory.decodeResource(getResources(), R.drawable.douglas);
+        imageMap = BitmapFactory.decodeResource(getResources(), R.drawable.imdoug);
         tempMap = Bitmap.createBitmap(imageMap.getWidth(), imageMap.getHeight(), Bitmap.Config.RGB_565);
         Log.d("tempMap",tempMap.getHeight()+"");
         Log.d("imageMap",imageMap.getWidth()+"");
