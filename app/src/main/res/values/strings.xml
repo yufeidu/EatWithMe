@@ -16,4 +16,5 @@
     <string name="douglas_hall">Douglas Hall</string>
     <string name="danforth_hall">Danforth Hall</string>
     <string name="wilson_commons">Wilson Commons</string>
+    <string name="server">http://52.36.230.191:8787/generator</string>
 </resources>

@@ -165,8 +165,8 @@ public class TopicSelection extends AppCompatActivity {
                 // Construct the URL for the OpenWeatherMap query
                 // Possible parameters are avaiable at OWM's forecast API page, at
                 // http://openweathermap.org/API#forecast
-                URL url = new URL("http://54.200.211.247:8787/generator");
-
+                URL url = new URL(getResources().getString(R.string.server));
+                Log.d("URL",getResources().getString(R.string.server));
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
@@ -191,6 +191,7 @@ public class TopicSelection extends AppCompatActivity {
 
                 if (buffer.length() == 0) {
                     // Stream was empty.  No point in parsing.
+                    Log.d("EMPTY","EMPTY");
                     return null;
                 }
                 returnStr = buffer.toString();
@@ -253,7 +254,7 @@ public class TopicSelection extends AppCompatActivity {
                 // Construct the URL for the OpenWeatherMap query
                 // Possible parameters are avaiable at OWM's forecast API page, at
                 // http://openweathermap.org/API#forecast
-                URL url = new URL("http://54.200.211.247:8787/generator");
+                URL url = new URL(getResources().getString(R.string.server));
 
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
