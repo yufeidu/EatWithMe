@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="moe.edward.eatwithme.LoginActivity"
     android:orientation="vertical"
-    android:background="#dfe7de">
+    android:background="@drawable/snow"
+    android:alpha="0.6">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,10 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email Address"
-        android:textColorHint="#0a4004"
+        android:textColorHint="#dde9db"
         android:id="@+id/editText"
         android:paddingTop="20dp"
-        android:textColor="#0a4004"/>
+        android:textColor="#0a4004"
+        />
 
     <Button
         android:layout_width="match_parent"
@@ -40,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Confirmation Code"
-        android:textColorHint="#0a4004"
+        android:textColorHint="#dde9db"
         android:id="@+id/code"
         android:paddingTop="20dp"/>
 
