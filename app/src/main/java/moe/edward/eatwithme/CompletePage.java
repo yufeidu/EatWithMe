@@ -39,6 +39,7 @@ public class CompletePage extends AppCompatActivity {
         callAsynchronousTask();
     }
 
+    //Cite: http://stackoverflow.com/questions/6531950/how-to-execute-async-task-repeatedly-after-fixed-time-intervals
     public void callAsynchronousTask() {
         final Handler handler = new Handler();
         timer = new Timer();
