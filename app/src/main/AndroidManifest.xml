@@ -14,12 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".PlacesSelection" />
-        <activity android:name=".TopicSelection">
-
-        </activity>
-        <activity android:name=".Map">
-
-        </activity>
+        <activity android:name=".TopicSelection"></activity>
+        <activity android:name=".Map"></activity>
         <activity android:name=".MapUnzoomed" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -28,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CompletePage"></activity>
     </application>
 
 </manifest>

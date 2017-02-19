@@ -43,6 +43,7 @@ public class TopicSelection extends AppCompatActivity {
     String jsonString;
     LinearLayout layout;
     int selected;
+    ArrayList<Button> topics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,8 @@ public class TopicSelection extends AppCompatActivity {
         layout = (LinearLayout)findViewById(R.id.linearLayout_Inside_Topic);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         //updateEntryList(layout);
-        new GetData().execute();
+        //new GetData().execute();
+        //topics = new ArrayList<Button>();
         EditText text = (EditText)findViewById(R.id.editText_topic);
         text.addTextChangedListener(new TextWatcher() {
 
@@ -70,10 +72,23 @@ public class TopicSelection extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        new GetData().execute();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        layout.removeAllViews();
+    }
+
     //map data structure: {text,X,Y}
     private void updateEntryList(LinearLayout view, ArrayList<String[]> map) {
         for(String[] entry : map){
             Button button = new Button(this);
+            //topics.add(button);
             button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             button.setText(entry[0]);
             final int id = Integer.parseInt(entry[1]);
@@ -243,7 +258,7 @@ public class TopicSelection extends AppCompatActivity {
                 }
                 returnStr = buffer.toString();
                 return returnStr;
-            } catch (IOException e) {
+            } catch (Exception e) {
                 Log.e("PlaceholderFragment", "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
                 // to parse it.

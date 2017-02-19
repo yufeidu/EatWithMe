@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void sendEmail(String email){
+    /*public void sendEmail(String email){
         Random random = new Random();
         int rand = random.nextInt(8999) + 1000;
 
@@ -53,5 +53,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 }
