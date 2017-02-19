@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class Map extends AppCompatActivity {
     ImageView pin;
     Button button;
     String text;
+    TouchImageView touchmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,9 @@ public class Map extends AppCompatActivity {
         if(mode==1){
             button.setVisibility(View.INVISIBLE);
             int[] pos = intent.getIntArrayExtra("entry");
+            touchmap = (TouchImageView)findViewById(R.id.image);
+            pos[0] = pos[0]*touchmap.getDrawable().getIntrinsicWidth()/10000;
+            pos[1] = pos[1]*touchmap.getDrawable().getIntrinsicHeight()/10000;
             Bitmap myimage = BitmapFactory.decodeResource(getResources(),R.drawable.dougl);
             Bitmap tempMap = Bitmap.createBitmap(myimage.getWidth(), myimage.getHeight(), Bitmap.Config.RGB_565);
             Canvas canvas = new Canvas(tempMap);

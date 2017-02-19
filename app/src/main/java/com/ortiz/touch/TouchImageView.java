@@ -857,7 +857,7 @@ public class TouchImageView extends ImageView {
                         if(state == State.TOUCH){
                             PointF touched = transformCoordTouchToBitmap(curr.x,curr.y,false);
                             Log.d("Clicked", touched.x+" "+touched.y);
-                            ((Map)getContext()).setPos((int)touched.x,(int)touched.y, (int)curr.x, (int)curr.y);
+                            ((Map)getContext()).setPos((int)(10000*touched.x/getDrawable().getIntrinsicWidth()),(int)(10000*touched.y/getDrawable().getIntrinsicHeight()), (int)curr.x, (int)curr.y);
 
                         }
 	                    setState(State.NONE);
