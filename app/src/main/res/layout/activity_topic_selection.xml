@@ -19,12 +19,35 @@
         android:layout_alignParentStart="true"
         android:weightSum="1">
 
+
         <TextView
             android:text="Choose an entry with topics you're interested in:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
             tools:text="Choose an entry with topics you're interested in:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RED: Argue"
+                android:textColor="#c40318"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GREEN: Learn"
+                android:textColor="#49df09"
+                android:layout_weight="4"/>
+
+        </LinearLayout>
+
 
         <ScrollView
             android:layout_width="match_parent"
