@@ -20,7 +20,7 @@
         android:weightSum="1">
 
         <TextView
-            android:text="TextView"
+            android:text="Choose an entry with topics you're interested in:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
@@ -30,7 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="335dp"
             android:layout_weight="1.05"
-            android:id="@+id/scrollview_topic">
+            android:id="@+id/scrollview_topic"
+            android:clipToPadding="false"
+            android:fillViewport="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,5 +75,27 @@
                 android:enabled="false" />
         </LinearLayout>
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Argue"
+                android:layout_weight="1"
+                android:textColor="#c40318"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Learn"
+                android:layout_weight="1"
+                android:textColor="#49df09"/>
+
+        </RadioGroup>
+
     </LinearLayout>
+
 </RelativeLayout>
