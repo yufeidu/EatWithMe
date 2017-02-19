@@ -848,6 +848,7 @@ public class TouchImageView extends ImageView {
 	                        fixTrans();
 	                        last.set(curr.x, curr.y);
                             setState(State.DRAG);
+                            ((Map)getContext()).hidePin();
 	                    }
 	                    break;
 	
@@ -1085,6 +1086,19 @@ public class TouchImageView extends ImageView {
          }
          Log.d("Zoomed",finalX+" "+finalY);
          return new PointF(finalX , finalY);
+    }
+
+    private PointF reverseTransform(float x, float y) {
+        matrix.getValues(m);
+        float origW = getDrawable().getIntrinsicWidth();
+        float origH = getDrawable().getIntrinsicHeight();
+        float transX = m[Matrix.MTRANS_X];
+        float transY = m[Matrix.MTRANS_Y];
+        float finalX = x * getImageWidth() / origW + transX;
+        float finalY = y * getImageHeight() / origH + transY;
+
+        //Log.d("Zoomed",finalX+" "+finalY);
+        return new PointF(finalX , finalY);
     }
     
     /**

@@ -93,7 +93,7 @@ public class TopicSelection extends AppCompatActivity {
 
     public void onClickButton(View e){
         String text = ((EditText)findViewById(R.id.editText_topic)).getText().toString();
-        Intent intent = new Intent(TopicSelection.this, MapUnzoomed.class);
+        Intent intent = new Intent(TopicSelection.this, Map.class);
         intent.putExtra("mode", 2);
         intent.putExtra("data", text);
         startActivity(intent);
